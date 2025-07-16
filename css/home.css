@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+:root{
+    --title-font: ;
+    --text-font: ;
+    --link-font: ;
+}
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    position: relative;
+}
+
+body.open{
+    overflow-y: hidden;
+}
+
+#overlay.open{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+button{
+    cursor: pointer;
+}
+
+header{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding-inline: 1.5rem;
+    z-index: 9;
+    background-color: #0011ffe0;
+}
+
+header #menu-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+header #menu-icon span{
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all .3s ease-in-out;
+}
+
+#menu-icon.open span:nth-child(1){
+    transform: rotate(45deg) translateY(13px);
+    top: 10px;
+}  
+#menu-icon.open span:nth-child(2){
+    opacity: 0;
+}
+#menu-icon.open span:nth-child(3){
+    transform: rotate(-45deg) translateY(-13px);
+    top: 10px;
+}
+
+#menu-con.spin{
+    transform: rotate(180deg);
+}
+
+header #login-btn{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+main #side-menu{
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 70%;
+    height: calc(100dvh);
+    background-color: #0000ff65;
+    transition: left .5s ease-in-out;
+}
+
+main #side-menu.open{
+    left: 0;
+}
+
+main #side-menu nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main #side-menu a{
+    text-transform: uppercase;
+    font-size: 2.3rem;
+    text-decoration: none;
+    margin-block: 1rem;
+    color: #fff;
+}
+
+main #side-menu a:hover{
+    text-decoration: underline;
+}
+
+main #hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 120dvh;
+    text-align: center;
+}
+
+iframe{
+    width: 100%;
+}
