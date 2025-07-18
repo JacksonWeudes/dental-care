@@ -65,9 +65,20 @@ header{
     align-items: center;
     width: 100%;
     height: 60px;
+    top: 0;
+    left: 0;
     padding-inline: 1.5rem;
-    z-index: 9;
+    z-index: 9999;
     background-color: var(--color-3);
+    transition: all 300ms ease-in-out;
+}
+
+.scroll-up header{
+    filter: drop-shadow(0 -10px 20px #0000005e);
+}
+
+.scroll-down header{
+    transform: translate3d(0, -100%, 0);
 }
 
 header #menu-icon{
@@ -107,7 +118,7 @@ header #menu-icon span{
 
 header #logo{
     font-family: var(--logo-font);
-    font-size: 2.2rem;
+    font-size: clamp(1rem, 2rem, 2.5rem);
     font-weight: normal;
     color: #fff;
 }
@@ -118,6 +129,9 @@ header #login-btn{
     border-radius: 40px;
     text-transform: uppercase;
     font-weight: 600;
+    border: 1px solid;
+    color: #fff;
+    background-color: transparent;
 }
 
 main #side-menu{
@@ -132,6 +146,7 @@ main #side-menu{
 
 main #side-menu.open{
     left: 0;
+    z-index: 999;
 }
 
 main #side-menu nav{
@@ -163,19 +178,29 @@ main #side-menu a:hover{
 }
 
 main #hero{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+main #hero-img{
+    height: 120dvh;
+    background: url(../assets/bg-img.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center; 
+}
+
+main #hero-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 130dvh;
+    height: 120dvh;
     text-align: center;
-    background: url(../assets/bg-img.jpg) no-repeat fixed;
-    background-size: cover;
-    background-position: center center;
+    background-color: #16425b;
 }
 
 main #hero h1{
-    font-size: 8vw;
+    font-size: clamp(2rem, 8vw, 5rem);
     text-transform: capitalize;
     color: #fff;
 }
@@ -186,4 +211,10 @@ main #hero p{
 
 iframe{
     width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    main #hero{
+        grid-template-columns: 1fr 1fr;
+    }
 }
